@@ -1,0 +1,100 @@
+<nav class="upper-navbar all-one-whole clearfix">
+  <a  href="#" class="layout__item all-one-fifth l-fl all-pv- all-ph-- t-uppercase t-dec-none t-center c-black b-solid b-thin b-black b-radius">Home</a>
+
+  <%= form_tag '#', method: 'get', class: 'all-three-tenths layout__item all-ml-' do %>
+    <%= hidden_field_tag :origin, :navbar %>
+    <%=
+      text_field_tag :query, params[:query], class: 'upper-navbar__search-field layout__item b-radius all-pv- all-pl-- b-thin b-solid b-black',
+      placeholder: 'Search...'
+    %>
+
+    <%= submit_tag"Search", class: 'upper-navbar__search-submit' %>
+
+    <%= evil_icon('ei-search', size: :m, class: 'upper-navbar__search-icon layout__item c-black magnifying-glass') %>
+  <% end %>
+
+  <a  href="#" class="layout__item all-one-fifth l-fr all-pv- all-ph-- t-uppercase t-dec-none t-center c-black b-solid b-thin b-black b-radius">Sign Up</a>
+  <a  href="#" class="layout__item all-one-fifth l-fr all-pv- all-ph-- t-uppercase t-dec-none t-center c-black b-solid b-thin b-black b-radius all-mr-">Sign In</a>
+</nav>
+
+<nav class="lower-navbar palm-lower-navbar__border lap-and-up-pt palm-mt-">
+  <%= evil_icon 'ei-navicon', size: :m, class: 'lap-and-up-lower-navbar__burger--hide palm-lower-navbar__burger--show' %>
+
+  <ul class="palm-lower-navbar__dropdown list-inline layout all-one-whole">
+    <li class="layout__item lap-and-up-one-ninth palm-one-whole palm-mb--">
+      <a href="#" role="link" class="t-dec-none">
+        <p class="bg-black c-white t-center all-mv0 all-pv-- b-radius t-uppercase">Link 1</p>
+      </a>
+    </li><!--
+
+    --><li class="layout__item lap-and-up-one-ninth palm-one-whole palm-mv--">
+      <a href="#" role="link" class="t-dec-none">
+        <p class="bg-black c-white t-center all-mv0 all-pv-- b-radius t-uppercase">Link 2</p>
+      </a>
+    </li><!--
+
+    --><li class="layout__item lap-and-up-one-ninth palm-one-whole palm-mv--">
+      <a href="#" role="link" class="t-dec-none">
+        <p class="bg-black c-white t-center all-mv0 all-pv-- b-radius t-uppercase">Link 3</p>
+      </a>
+    </li><!--
+
+    --><li class="layout__item lap-and-up-one-ninth palm-one-whole palm-mv--">
+      <a href="#" role="link" class="t-dec-none">
+        <p class="bg-black c-white t-center all-mv0 all-pv-- b-radius t-uppercase">Link 4</p>
+      </a>
+    </li><!--
+
+    --><li class="layout__item lap-and-up-one-ninth palm-one-whole palm-mv--">
+      <a href="#" role="link" class="t-dec-none">
+        <p class="bg-black c-white t-center all-mv0 all-pv-- b-radius t-uppercase">Link 5</p>
+      </a>
+    </li><!--
+
+    --><li class="layout__item lap-and-up-one-ninth palm-one-whole palm-mv--">
+      <a href="#" role="link" class="t-dec-none">
+        <p class="bg-black c-white t-center all-mv0 all-pv-- b-radius t-uppercase">Link 6</p>
+      </a>
+    </li><!--
+
+    --><li class="layout__item lap-and-up-one-ninth palm-one-whole palm-mv--">
+      <a href="#" role="link" class="t-dec-none">
+        <p class="bg-black c-white t-center all-mv0 all-pv-- b-radius t-uppercase">Link 7</p>
+      </a>
+    </li><!--
+
+    --><li class="layout__item lap-and-up-one-ninth palm-one-whole palm-mv--">
+      <a href="#" role="link" class="t-dec-none">
+        <p class="bg-black c-white t-center all-mv0 all-pv-- b-radius t-uppercase">Link 8</p>
+      </a>
+    </li><!--
+
+    --><li class="layout__item lap-and-up-one-ninth palm-one-whole palm-mv-- palm-mb-">
+      <a href="#" role="link" class="t-dec-none">
+        <p class="bg-black c-white t-center all-mv0 all-pv-- b-radius t-uppercase">Link 9</p>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<header>
+  <h1>railsInuitDemo</h1>
+  <p>Teaching you good layout</p>
+</header>
+
+<section role="main">
+  <div class="carousel">
+  </div>
+
+  <article>
+  </article>
+
+  <article>
+  </article>
+</section>
+
+<aside class="twitter-feed">
+</aside>
+
+<footer>
+</footer>

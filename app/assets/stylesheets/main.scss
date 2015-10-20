@@ -1,0 +1,35 @@
+/* Set variables */
+$inuit-enable-layout--medium:               true;
+$inuit-enable-layout--center:               true;
+$inuit-enable-layout--right:                true;
+$inuit-enable-responsive-margins--none:     true;
+$inuit-enable-responsive-margins--tiny:     true;
+$inuit-enable-responsive-margins--small:    true;
+
+$inuit-enable-responsive-paddings--none:    true;
+$inuit-enable-responsive-paddings--tiny:    true;
+$inuit-enable-responsive-paddings--small:   true;
+$inuit-enable-responsive-paddings:          true;
+
+
+/* Import desired files */
+@import
+  'settings.defaults/settings.defaults',
+  'settings.responsive/settings.responsive',
+  'tools.responsive/tools.responsive',
+  'tools.widths/tools.widths',
+  'tools.mixins/tools.mixins',
+  'tools.functions/tools.functions',
+  'objects.list-inline/objects.list-inline',
+  'objects.layout/objects.layout',
+  'trumps.widths-responsive/trumps.widths-responsive',
+  'trumps.spacing-responsive/trumps.spacing-responsive',
+  'trumps.clearfix/trumps.clearfix',
+
+  'wgc/colours',
+  'wgc/typography',
+  'wgc/borders',
+  'wgc/floats',
+
+  'inuit_rails_demo'
+;

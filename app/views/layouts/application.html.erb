@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InuitRailsDemo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A demonstration of how to use the WGC-Inuit front-end">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= yield %>
+
+    <%= evil_icons_sprite %>
+  </body>
+</html>
