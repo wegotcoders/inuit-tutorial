@@ -1,97 +1,111 @@
-// SLIDER
-var slider = function() {
-
-  // Set time delay of slider
-  var delay = 4000;
-
-  // Set variables
-  var numImages = $('.carousel__image').length;
-  var previousImage = numImages;
-  var currentImage = 1;
-  var nextImage = 2;
-
-  // Find width of container div
-  var sliderWidth = $("#slider").width();
-
-  // Give images same width as slider
-  var sizeImages = function() {
-    $(".carousel__image").width(sliderWidth);
-  };
-  sizeImages();
-
-  // Create as many navigation dots as there are pictures
-  for (var i = 1; i <= numImages; i++) {
-    $('#dots').find('ul').append($('<li class="carousel__dot ' + i + '"></li>'));
-  }
-
-  // Set initial position of images
-  var resetImages = function() {
-    $('.carousel__image').css({"left": sliderWidth+"px"});
-    $('.carousel__image').first().css({"left": "0px"});
-    $('.1').addClass("carousel__image--active");
-  };
-  resetImages();
-
-  // Slide to next image
-  var slideNextImageLeft = function() {
-    $('.carousel__image--' + nextImage).css({"left": sliderWidth+"px"});
-    $('.carousel__image--' + currentImage).animate({left: sliderWidth * -1}, 1000);
-    $('.carousel__image--' + nextImage).animate({left: "0px"}, 1000);
-    currentImage = nextImage;
-    increaseImages();
-  };
-
-  // Slide to the previous image
-  var slidePreviousImageRight = function() {
-    $('.carousel__image--' + previousImage).css({"left": (sliderWidth * -1)+"px"});
-    $('.carousel__image--' + currentImage).animate({left: sliderWidth}, 1000);
-    $('.carousel__image--' + previousImage).animate({left: "0px"}, 1000);
-    currentImage = previousImage;
-    increaseImages();
-  };
-
-  // Shift which images are next and previous
-  var increaseImages = function() {
-    if(currentImage === numImages) {
-      nextImage = 1;
-      previousImage = currentImage - 1;
-    } else {
-      nextImage = currentImage + 1;
-      if(currentImage === 1) {
-        previousImage = numImages;
-      } else {
-        previousImage = currentImage - 1;
-      }
-    }
-    // Change dots status
-    $('#dots').find('li').removeClass("carousel__image--active");
-    $('#dots').find('.' + currentImage).addClass("carousel__image--active");
-  };
-
-  // Set initial slider interval
-  moveImages = setInterval(function() {
-    slideNextImageLeft();
-  }, delay);
-
-  // When a navigation dot is clicked
-  $('.carousel__dot').click(function(e) {
-    buttonPressed = $('.carousel__dot').index(e.target) + 1;
-    if(buttonPressed !== currentImage) {
-      clearInterval(moveImages);
-      moveImages = setInterval(function() {
-        slideNextImageLeft();
-      }, delay);
-      if(currentImage < buttonPressed) {
-        nextImage = buttonPressed;
-        slideNextImageLeft();
-      } else {
-        previousImage = buttonPressed;
-        slidePreviousImageRight();
-      }
-    }
-  });
-};
-
 $(document).ready(function() {
-  slider();
+  var carousel = {
+    interval:             3000,
+    numberOfSlides:       null,
+    previousSlide:        this.numberOfSlides,
+    currentSlide:         1,
+    nextSlide:            2,
+    $slideMargin:         parseFloat($('.carousel__slider-container').css('width')) / 3,
+    $carouselSlider:      $('.carousel__slider'),
+    $carouselSlideLHS:    $('.carousel__slide--lhs'),
+    $carouselSlideRHS:    $('.carousel__slide--rhs'),
+
+    setSliderStartPosition: function() {
+      this.$carouselSlider.css('float', 'right');
+      this.$carouselSlideLHS.addClass('carousel__slide--1');
+      this.$carouselSlideRHS.addClass('carousel__slide--2');
+    },
+
+    buildDotSelectors: function() {
+      for (var i = 1; i <= this.numberOfSlides; i++) {
+        $('.carousel__dot-selector-container').append($('<li class="carousel__dot-selector carousel__dot-selector--'+ i +'"></li>'));
+      }
+    },
+
+    highlightInitialDotSelector: function() {
+      $('.carousel__dot-selector--1').addClass('carousel__dot-selector--active');
+    },
+
+    setInitialParameters: function() {
+      this.setSliderStartPosition();
+      this.buildDotSelectors();
+      this.highlightInitialDotSelector();
+    },
+
+    updateDotSelectorStatus: function() {
+      $('.carousel__dot-selector').removeClass("carousel__dot-selector--active");
+      $('.carousel__dot-selector--' + this.nextSlide).addClass("carousel__dot-selector--active");
+    },
+
+    bumpSlideIndeces: function() {
+      if(this.currentSlide === this.numberOfSlides) {
+        this.nextSlide = 1;
+        this.previousSlide = this.currentSlide - 1;
+      } else {
+        this.nextSlide = this.currentSlide + 1;
+        if(this.currentSlide === 1) {
+          this.previousSlide = this.numberOfSlides;
+        } else {
+          this.previousSlide = this.currentSlide - 1;
+        }
+      }
+    },
+
+    resetSlider: function() {
+      this.$carouselSlideLHS.removeClass('carousel__slide--' + this.currentSlide);
+      this.$carouselSlideLHS.addClass('carousel__slide--' + this.nextSlide);
+      this.$carouselSlider.css('margin-right','0');
+      this.$carouselSlideRHS.removeClass('carousel__slide--' + this.nextSlide);
+      this.currentSlide = this.nextSlide;
+      this.bumpSlideIndeces();
+      this.$carouselSlideRHS.addClass('carousel__slide--' + this.nextSlide);
+    },
+
+    run: function() {
+      var _this = this;
+
+      $('.carousel__slider').attrchange({
+          callback: function () {
+            var currentMargin = parseFloat($(this).css('margin-right'));
+            if (currentMargin > _this.$slideMargin *  2/3) {
+              _this.updateDotSelectorStatus();
+            }
+          }
+      });
+
+      setInterval(function() {
+        _this.$carouselSlider.delay(_this.interval).animate(
+          {marginRight: _this.$slideMargin},
+          _this.interval,
+
+          function() {
+            _this.resetSlider();
+          }
+        );
+      });
+    }
+  };
+
+  //   // When a navigation dot is clicked
+  //   $('.carousel__dot').click(function(e) {
+  //     buttonPressed = $('.carousel__dot').index(e.target) + 1;
+  //     if(buttonPressed !== currentSlide) {
+  //       clearInterval(moveImages);
+  //       moveImages = setInterval(function() {
+  //         slideNextSlideLeft();
+  //       }, delay);
+  //       if(currentSlide < buttonPressed) {
+  //         nextSlide = buttonPressed;
+  //         slideNextSlideLeft();
+  //       } else {
+  //         previousSlide = buttonPressed;
+  //         slidePreviousSlideRight();
+  //       }
+  //     }
+  //   });
+  // };
+
+  carousel.numberOfSlides = 4;
+  carousel.setInitialParameters();
+  carousel.run();
 });
