@@ -5,7 +5,7 @@ $(document).ready(function() {
     currentSlide:         1,
     nextSlide:            2,
     dotTransitionPoint:   3/10,
-    $slideMargin:         parseFloat($('.carousel__slider-container').css('width')) / 3,
+    $sliderMargin:        parseFloat($('.carousel__slider-container').css('width')) / 3,
     $carouselSlider:      $('.carousel__slider'),
     $carouselSlideLHS:    $('.carousel__slide--lhs'),
     $carouselSlideRHS:    $('.carousel__slide--rhs'),
@@ -37,127 +37,134 @@ $(document).ready(function() {
       $('.carousel__dot-selector--' + this.nextSlide).addClass("carousel__dot-selector--active");
     },
 
-    bumpSlideIndeces: function() {
-      if(this.currentSlide === this.numberOfSlides) {
-        this.nextSlide = 1;
-        this.previousSlide = this.currentSlide - 1;
-      } else {
-        this.nextSlide = this.currentSlide + 1;
-        if(this.currentSlide === 1) {
-          this.previousSlide = this.numberOfSlides;
-        } else {
-          this.previousSlide = this.currentSlide - 1;
-        }
-      }
-    },
-
-    resetSlider: function() {
-      this.$carouselSlideLHS.removeClass('carousel__slide--' + this.currentSlide);
-      this.$carouselSlideLHS.addClass('carousel__slide--' + this.nextSlide);
-      this.$carouselSlider.css('margin-right','0');
-      this.$carouselSlideRHS.removeClass('carousel__slide--' + this.nextSlide);
-      this.currentSlide = this.nextSlide;
-      this.bumpSlideIndeces();
-      this.$carouselSlideRHS.addClass('carousel__slide--' + this.nextSlide);
-    },
-
     watchForDotTransitionPoint: function() {
       var _this = this;
 
-      $('.carousel__slider').attrchange({
+      this.$carouselSlider.attrchange({
           callback: function () {
             var currentMargin = parseFloat($(this).css('margin-right'));
-            if (currentMargin > _this.$slideMargin *  _this.dotTransitionPoint) {
+            if (currentMargin > _this.$sliderMargin *  _this.dotTransitionPoint) {
               _this.updateDotSelectorStatus();
             }
           }
       });
-    },
+    }
 
-    slideLeftWithDelay: function() {
-      var _this = this;
+//     play: function() {
+//       var _this = this;
 
-      this.$carouselSlider.delay(this.interval).animate(
-        {marginRight: this.$slideMargin},
-        this.interval,
+//       var playLoop = setInterval(function() {
 
-        function() {
-          _this.resetSlider();
-        }
-      );
-    },
+//         _this.$carouselSlider.delay(_this.interval).animate(
+//           {marginRight: _this.$sliderMargin},
+//           _this.interval,
 
-    slideLeftWithoutDelay: function() {
-      var _this = this;
+//           function() {
+//             _this.resetSlider();
+//           }
+//         );
+//       });
+//     },
 
-      this.$carouselSlider.animate(
-        {marginRight: this.$slideMargin},
-        this.interval,
+//     jumpForwardDuring: function() {
+//       this.clearInterval(this.defaultLoop());
+//     },
 
-        function() {
-          _this.resetSlider();
-        }
-      );
-    },
+//     jumpBackBefore: function() {
+//       this.clearInterval(this.defaultLoop());
+//     },
 
-    play: function() {
-      var _this = this;
+//     jumpBackDuring: function() {
+//       this.clearInterval(this.defaultLoop());
+//     },
 
-      var playLoop = setInterval(function() {
+//   };
 
-        _this.$carouselSlider.delay(_this.interval).animate(
-          {marginRight: _this.$slideMargin},
-          _this.interval,
-
-          function() {
-            _this.resetSlider();
-          }
-        );
-      });
-    },
-
-    jumpForwardBefore: function() {
-      this.clearInterval(this.defaultLoop());
-      this.$carouselSlideRHS.removeClass('carousel__slide--' + this.nextSlide);
-      this.nextSlide = this.selectedDot;
-      this.$carouselSlideRHS.addClass('carousel__slide--' + this.nextSlide);
-      this.slideLeftWithoutDelay();
-      this.defaultLoop();
-    },
-
-    jumpForwardDuring: function() {
-      this.clearInterval(this.defaultLoop());
-    },
-
-    jumpBackBefore: function() {
-      this.clearInterval(this.defaultLoop());
-    },
-
-    jumpBackDuring: function() {
-      this.clearInterval(this.defaultLoop());
-    },
-
-    handleDotNavigation: function() {
-      var _this = this;
-
-      $('.carousel__dot-selector').click(function(e) {
-        _this.selectedDot = $('.carousel__dot-selector').index(e.target) + 1;
-        if(_this.selectedDot !== _this.currentSlide) {
-          clearInterval(_this.defaultLoop());
-
-          if(_this.currentSlide < _this.selectedDot) {
-            _this.nextSlide = _this.selectedDot;
-          } else {
-            _this.previousSlide = _this.selectedDot;
-          }
-        }
-      });
-    },
+//   carousel.watchForDotTransitionPoint();
+//   carousel.handleDotNavigation();
+//   carousel.play();
   };
 
   carousel.numberOfSlides = 4;
   carousel.setInitialParameters();
   carousel.watchForDotTransitionPoint();
-  carousel.handleDotNavigation();
-  carousel.play();
+
+  function bumpSlideIndeces() {
+    if(carousel.currentSlide === carousel.numberOfSlides) {
+      carousel.nextSlide = 1;
+      carousel.previousSlide = carousel.currentSlide - 1;
+    } else {
+      carousel.nextSlide = carousel.currentSlide + 1;
+      if(carousel.currentSlide === 1) {
+        carousel.previousSlide = carousel.numberOfSlides;
+      } else {
+        carousel.previousSlide = carousel.currentSlide - 1;
+      }
+    }
+  }
+
+  function resetSlider() {
+    carousel.$carouselSlideLHS.removeClass('carousel__slide--' + carousel.currentSlide);
+    carousel.$carouselSlideLHS.addClass('carousel__slide--' + carousel.nextSlide);
+    carousel.$carouselSlider.css('margin-right','0');
+    carousel.$carouselSlideRHS.removeClass('carousel__slide--' + carousel.nextSlide);
+    carousel.currentSlide = carousel.nextSlide;
+    bumpSlideIndeces();
+    carousel.$carouselSlideRHS.addClass('carousel__slide--' + carousel.nextSlide);
+  }
+
+  function slideLeftWithDelay() {
+    carousel.$carouselSlider.delay(carousel.interval).animate(
+      {marginRight: carousel.$sliderMargin},
+      carousel.interval,
+
+      function() {
+        resetSlider();
+      }
+    );
+  }
+
+  function slideLeftWithoutDelay() {
+    carousel.$carouselSlider.animate(
+      {marginRight: carousel.$sliderMargin},
+      carousel.interval,
+
+      function() {
+        resetSlider();
+      }
+    );
+  }
+
+  var playLoop = window.setInterval(function() {
+    slideLeftWithDelay();
+    console.log(playLoop);
+  }, carousel.interval * 2); // firing excessively perhaps???
+
+  function jumpForwardBefore() {
+    // carousel.$carouselSlideRHS.removeClass('carousel__slide--' + carousel.nextSlide);
+    // carousel.nextSlide = carousel.selectedDot;
+    // carousel.$carouselSlideRHS.addClass('carousel__slide--' + carousel.nextSlide);
+    // slideLeftWithoutDelay();
+    // playLoop = setInterval(function() {
+    //   slideLeftWithDelay();
+    // });
+  }
+
+  (function handleDotNavigation() {
+    $('.carousel__dot-selector').click(function(e) {
+      window.clearInterval(playLoop);
+      carousel.selectedDot = $('.carousel__dot-selector').index(e.target) + 1;
+      if(carousel.selectedDot !== carousel.currentSlide) {
+        if (parseFloat($('.carousel__slider').css('margin-right')) === 0) {
+        }
+
+        // if(carousel.currentSlide < carousel.selectedDot) {
+        //   carousel.nextSlide = carousel.selectedDot;
+        // } else {
+        //   carousel.previousSlide = carousel.selectedDot;
+        // }
+      }
+    });
+  })();
 });
+

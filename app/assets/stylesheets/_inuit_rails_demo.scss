@@ -72,10 +72,11 @@ body {
     border-width: thin;
   }
 
-  // Sizing evil-icon burger svg
-  .icon__cnt {
-    height: 44px;
-  }
+}
+
+// Overriding the medium size for evil-icon SVGs
+.icon--m {
+  height: 44px !important;
 }
 
 // The carousel
