@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+  // Declare carousel attributes and fix initial state
   var carousel = {
     interval:             3000,
     previousSlide:        this.numberOfSlides,
@@ -31,24 +33,6 @@ $(document).ready(function() {
       this.buildDotSelectors();
       this.highlightInitialDotSelector();
     },
-
-    updateDotSelectorStatus: function() {
-      $('.carousel__dot-selector').removeClass("carousel__dot-selector--active");
-      $('.carousel__dot-selector--' + this.nextSlide).addClass("carousel__dot-selector--active");
-    },
-
-    watchForDotTransitionPoint: function() {
-      var _this = this;
-
-      this.$carouselSlider.attrchange({
-          callback: function () {
-            var currentMargin = parseFloat($(this).css('margin-right'));
-            if (currentMargin > _this.$sliderMargin *  _this.dotTransitionPoint) {
-              _this.updateDotSelectorStatus();
-            }
-          }
-      });
-    }
 
 //     play: function() {
 //       var _this = this;
@@ -85,9 +69,14 @@ $(document).ready(function() {
 //   carousel.play();
   };
 
+  // Set up carousel environment and add functionality
   carousel.numberOfSlides = 4;
   carousel.setInitialParameters();
-  carousel.watchForDotTransitionPoint();
+
+  function updateDotSelectorStatus() {
+    $('.carousel__dot-selector').removeClass("carousel__dot-selector--active");
+    $('.carousel__dot-selector--' + carousel.nextSlide).addClass("carousel__dot-selector--active");
+  }
 
   function bumpSlideIndeces() {
     if(carousel.currentSlide === carousel.numberOfSlides) {
@@ -111,20 +100,11 @@ $(document).ready(function() {
     carousel.currentSlide = carousel.nextSlide;
     bumpSlideIndeces();
     carousel.$carouselSlideRHS.addClass('carousel__slide--' + carousel.nextSlide);
-  }
-
-  function slideLeftWithDelay() {
-    carousel.$carouselSlider.delay(carousel.interval).animate(
-      {marginRight: carousel.$sliderMargin},
-      carousel.interval,
-
-      function() {
-        resetSlider();
-      }
-    );
+    // console.log('just reset slider. Primary loop id is ' + primaryLoop + ' secondary loop id is ' + secondaryLoop + '');
   }
 
   function slideLeftWithoutDelay() {
+    // console.log('slide starting now. Primary loop id is ' + primaryLoop + ' secondary loop id is ' + secondaryLoop + '');
     carousel.$carouselSlider.animate(
       {marginRight: carousel.$sliderMargin},
       carousel.interval,
@@ -135,27 +115,48 @@ $(document).ready(function() {
     );
   }
 
-  var playLoop = window.setInterval(function() {
-    slideLeftWithDelay();
-    console.log(playLoop);
-  }, carousel.interval * 2); // firing excessively perhaps???
+  // Start running the carousel
+  (function() {
+    carousel.$carouselSlider.attrchange({
+        callback: function () {
+          var currentMargin = parseFloat($(this).css('margin-right'));
+          if (currentMargin > carousel.$sliderMargin * carousel.dotTransitionPoint) {
+            updateDotSelectorStatus();
+          }
+        }
+    });
+  })();
+
+  var primaryLoop;
+  var secondaryLoop;
+  function play() {
+    primaryLoop = window.setTimeout(slideLeftWithoutDelay, carousel.interval);
+    secondaryLoop = window.setTimeout(play, carousel.interval * 2);
+  }
+  play();
+
+  function pauseLoop() {
+    window.clearTimeout(primaryLoop);
+    window.clearTimeout(secondaryLoop);
+  }
 
   function jumpForwardBefore() {
-    // carousel.$carouselSlideRHS.removeClass('carousel__slide--' + carousel.nextSlide);
-    // carousel.nextSlide = carousel.selectedDot;
-    // carousel.$carouselSlideRHS.addClass('carousel__slide--' + carousel.nextSlide);
-    // slideLeftWithoutDelay();
-    // playLoop = setInterval(function() {
-    //   slideLeftWithDelay();
-    // });
+    pauseLoop();
+    carousel.$carouselSlideRHS.removeClass('carousel__slide--' + carousel.nextSlide);
+    carousel.nextSlide = carousel.selectedDot;
+    updateDotSelectorStatus();
+    carousel.$carouselSlideRHS.addClass('carousel__slide--' + carousel.nextSlide);
+    slideLeftWithoutDelay();
+    setTimeout(play, carousel.interval);
   }
 
   (function handleDotNavigation() {
     $('.carousel__dot-selector').click(function(e) {
-      window.clearInterval(playLoop);
+      // console.log('you just clicked me. Primary loop id is ' + primaryLoop + ' secondary loop id is ' + secondaryLoop + '');
       carousel.selectedDot = $('.carousel__dot-selector').index(e.target) + 1;
       if(carousel.selectedDot !== carousel.currentSlide) {
         if (parseFloat($('.carousel__slider').css('margin-right')) === 0) {
+          jumpForwardBefore();
         }
 
         // if(carousel.currentSlide < carousel.selectedDot) {
