@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require attrchange
+//= require jquery.pause
 //= require_tree .
