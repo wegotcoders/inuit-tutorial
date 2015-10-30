@@ -1,7 +1,9 @@
 $white:                       #fff;
-$black:                       #000;
+$link-blue:                   #00f;
+$link-purple:                 #520052;
 $light-grey:                  #adadad;
 $dark-grey:                   #303032;
+$black:                       #000;
 $inuit-responsive-settings:   true;
 $carousel-image-height:       125px;
 
@@ -12,6 +14,24 @@ $carousel-image-height:       125px;
 
 body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-right: $inuit-base-spacing-unit;
+  margin-left: $inuit-base-spacing-unit;
+}
+
+.main-paragraph {
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: quarter($inuit-base-spacing-unit);
+  text-indent: quarter($inuit-base-spacing-unit);
+}
+
+.main-link {
+  color: $link-blue;
+  text-decoration: none;
+
+  &:visited {
+    color: $link-purple;
+  }
 }
 
 // Upper navbar
@@ -29,29 +49,37 @@ body {
 }
 
 .upper-navbar__search-icon {
-  color: $light-grey;
+  color: $black;
 
   &:hover {
-    color: $black;
     cursor: pointer;
   }
 }
 
-// Lower navbar
+// Dropdowns: lower-navbar, carousel, main-article
 @include media-query('lap-and-up') {
   .lap-and-up-lower-navbar__burger--hide {
+    display: none !important;
+  }
+
+  .lap-and-up-carousel__icon--hide {
+    display: none !important;
+  }
+
+  .lap-and-up-main-article__icon--hide {
     display: none !important;
   }
 }
 
 @include media-query('palm') {
+  // lower-navbar
   .palm-lower-navbar__burger--show {
-    color: $light-grey;
+    color: $black;
+    height: 44px;
     margin: 0 auto;
     display: block !important;
 
     &:hover {
-      color: $black;
       cursor: pointer;
     }
   }
@@ -61,7 +89,7 @@ body {
     overflow: hidden;
 
     &.palm-lower-navbar__dropdown--open {
-      max-height: 1000px;
+      max-height: 10000px;
     }
   }
 
@@ -72,6 +100,63 @@ body {
     border-width: thin;
   }
 
+  // carousel
+  .palm-carousel__icon--show {
+    height: 44px;
+    color: $light-grey;
+    margin: 0 auto;
+    display: block !important;
+
+    &:hover {
+      color: $black;
+      cursor: pointer;
+    }
+  }
+
+  .palm-carousel__dropdown {
+    max-height: 0;
+    overflow: hidden;
+
+    &.palm-carousel__dropdown--open {
+      max-height: 10000px
+    }
+  }
+
+  .palm-carousel__border {
+    border-color: $black;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: thin;
+  }
+
+  // main-article
+  .palm-main-article__icon--show {
+    height: 44px;
+    color: $light-grey;
+    margin: 0 auto;
+    display: block !important;
+
+    &:hover {
+      color: $black;
+      cursor: pointer;
+    }
+  }
+
+  .palm-main-article__dropdown {
+    max-height: 0;
+    overflow: hidden;
+
+    &.palm-main-article__dropdown--open {
+      max-height: 10000px
+    }
+  }
+
+  .palm-main-article__border {
+    border-color: $black;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: thin;
+  }
 }
 
 // Overriding the medium size for evil-icon SVGs
@@ -95,18 +180,14 @@ body {
 }
 
 .carousel__slide--1 {
-  background: image-url('front_end.svg');
+  background: image-url('inuit_rails.svg');
 }
 
 .carousel__slide--2 {
-  background: image-url('development.svg');
+  background: image-url('is.svg');
 }
 
 .carousel__slide--3 {
-  background: image-url('really_is.svg');
-}
-
-.carousel__slide--4 {
   background: image-url('awesome.svg');
 }
 
@@ -128,7 +209,7 @@ body {
   margin-left: halve($inuit-base-spacing-unit);
 
   &:hover {
-    background-color: $dark-grey;
+    background-color: $black;
     cursor: pointer;
   }
 }

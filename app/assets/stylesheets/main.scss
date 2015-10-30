@@ -1,8 +1,15 @@
 /* Set variables */
+$enable-wgc-wrapper:                                true;
+
+$inuit-enable-layout--small:                        true;
 $inuit-enable-layout--medium:                       true;
 $inuit-enable-layout--center:                       true;
 $inuit-enable-layout--right:                        true;
 $inuit-enable-layout--flush:                        true;
+$inuit-enable-margins--none:                        true;
+$inuit-enable-margins--tiny:                        true;
+$inuit-enable-margins--small:                       true;
+$inuit-enable-margins:                              true;
 $inuit-enable-responsive-margins--none:             true;
 $inuit-enable-responsive-margins--tiny:             true;
 $inuit-enable-responsive-margins--small:            true;
@@ -12,6 +19,10 @@ $inuit-enable-responsive-paddings--none:            true;
 $inuit-enable-responsive-paddings--tiny:            true;
 $inuit-enable-responsive-paddings--small:           true;
 $inuit-enable-responsive-paddings:                  true;
+$inuit-enable-paddings--none:                       true;
+$inuit-enable-paddings--tiny:                       true;
+$inuit-enable-paddings--small:                      true;
+$inuit-enable-paddings:                             true;
 
 
 /* Import desired files */
@@ -25,13 +36,23 @@ $inuit-enable-responsive-paddings:                  true;
   'objects.list-inline/objects.list-inline',
   'objects.layout/objects.layout',
   'trumps.widths-responsive/trumps.widths-responsive',
+  'trumps.spacing/trumps.spacing',
   'trumps.spacing-responsive/trumps.spacing-responsive',
   'trumps.clearfix/trumps.clearfix',
 
-  'wgc/colours',
-  'wgc/typography',
+  'wgc/inuit-overrides/settings.defaults',
+  'wgc/inuit-overrides/settings.responsive',
+  'wgc/inuit-overrides/tools.functions',
+  'wgc/inuit-overrides/tools.mixins',
+  'wgc/inuit-overrides/generic.shared',
+  'wgc/inuit-overrides/base.forms',
+  'wgc/inuit-overrides/objects.layout',
+  'wgc/inuit-overrides/objects.flyout',
+  'wgc/inuit-overrides/trumps.spacing',
+  'wgc/inuit-overrides/trumps.spacing-responsive',
+  'wgc/inuit-overrides/trumps.widths-responsive',
   'wgc/borders',
-  'wgc/layout-helpers',
-
-  'inuit_rails_demo'
+  'wgc/colours',
+  'wgc/layout',
+  'wgc/typography'
 ;

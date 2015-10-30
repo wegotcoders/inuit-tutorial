@@ -1,26 +1,18 @@
-<div class="layout--flush">
-  <section role="main" class="layout__item layout lap-and-up-two-thirds">
-    <div class="layout__item carousel all-one-whole b-solid b-thin b-black all-pv-">
+<section class="lap-and-up-layout">
+  <section role="main" class="lap-and-up-layout__item lap-and-up-two-thirds">
+    <div class="palm-carousel__border one-whole palm-mv-">
       <%= render 'demos/carousel' %>
-    </div><!--
+    </div>
 
-    --><article class="layout__item lap-and-up-one-half b-solid b-thin b-black all-pv-">
-      <title>Tips and tricks on layout</title>
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    </article><!--
-
-    --><article class="layout__item lap-and-up-one-half b-solid b-thin b-black all-pv-">
-      <title>More tips and tricks layout</title>
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    <article role="article" class="palm-main-article__border palm-layout">
+      <%= render 'demos/article' %>
     </article>
   </section><!--
 
-  --><div class="layout__item layout lap-and-up-one-third">
-    <aside class="layout__item twitter-feed lap-and-up-one-whole b-solid b-thin b-black all-pv-">
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    </aside>
-  </div>
-</div>
+  --><aside role="complementary" class="lap-and-up-one-third lap-and-up-layout__item pr0">
+    <%= render 'demos/form' %>
+  </aside>
+</section>
 
 <footer>
 </footer>

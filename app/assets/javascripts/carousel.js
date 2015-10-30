@@ -36,7 +36,7 @@ $(document).ready(function() {
   };
 
   // Set up carousel environment and add functionality
-  carousel.numberOfSlides = 4;
+  carousel.numberOfSlides = 3;
   carousel.setInitialParameters();
 
   function updateDotSelectorStatus() {
@@ -116,17 +116,6 @@ $(document).ready(function() {
   }
 
   // Start running the carousel
-  (function() {
-    carousel.$carouselSlider.attrchange({
-        callback: function () {
-          var currentMargin = parseFloat($(this).css('margin-right'));
-          if (currentMargin > carousel.$sliderMargin * carousel.dotTransitionPoint) {
-            updateDotSelectorStatus();
-          }
-        }
-    });
-  })();
-
   var primaryLoop;
   var secondaryLoop;
   function play() {
@@ -174,27 +163,39 @@ $(document).ready(function() {
   }
 
   function jumpBackDuring() {
-    pauseLoop();
+    // pauseLoop();
   }
 
-  (function handleDotNavigation() {
-    $('.carousel__dot-selector').click(function(e) {
-      carousel.selectedDot = $('.carousel__dot-selector').index(e.target) + 1;
-      if(carousel.selectedDot !== carousel.currentSlide) {
-        if (parseFloat($('.carousel__slider').css('margin-right')) === 0) {
-          if(carousel.currentSlide < carousel.selectedDot) {
-            jumpForwardBefore();
-          } else {
-            jumpBackBefore();
-          }
+  // Event callbacks
+  $('.carousel__dot-selector').click(function(e) {
+    carousel.selectedDot = $('.carousel__dot-selector').index(e.target) + 1;
+    if(carousel.selectedDot !== carousel.currentSlide) {
+      if (parseFloat($('.carousel__slider').css('margin-right')) === 0) {
+        if(carousel.currentSlide < carousel.selectedDot) {
+          jumpForwardBefore();
         } else {
-          if (carousel.currentSlide < carousel.selectedDot) {
-            jumpForwardDuring();
-          } else {
-            jumpBackDuring();
-          }
+          jumpBackBefore();
+        }
+      } else {
+        if (carousel.currentSlide < carousel.selectedDot) {
+          jumpForwardDuring();
+        } else {
+          jumpBackDuring();
         }
       }
-    });
-  })();
+    }
+  });
+
+  carousel.$carouselSlider.attrchange({
+      callback: function () {
+        var currentMargin = parseFloat($(this).css('margin-right'));
+        if (currentMargin > (parseFloat($('.carousel__slider-container').css('width')) / 3) * carousel.dotTransitionPoint) {
+          updateDotSelectorStatus();
+        }
+      }
+  });
+
+  $(window).on('resize', function() {
+    carousel.$sliderMargin = parseFloat($('.carousel__slider-container').css('width')) / 3;
+  });
 });
