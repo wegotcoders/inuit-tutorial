@@ -6,6 +6,7 @@ $inuit-enable-layout--medium:                       true;
 $inuit-enable-layout--center:                       true;
 $inuit-enable-layout--right:                        true;
 $inuit-enable-layout--flush:                        true;
+$inuit-enable-layout--large:                        true;
 $inuit-enable-margins--none:                        true;
 $inuit-enable-margins--tiny:                        true;
 $inuit-enable-margins--small:                       true;
@@ -24,6 +25,10 @@ $inuit-enable-paddings--tiny:                       true;
 $inuit-enable-paddings--small:                      true;
 $inuit-enable-paddings:                             true;
 
+$inuit-enable-btn--small:                           true;
+$inuit-enable-btn--large:                           true;
+$inuit-enable-btn--full:                            true;
+$inuit-enable-btn--pill:                            true;
 
 /* Import desired files */
 @import
@@ -33,7 +38,10 @@ $inuit-enable-paddings:                             true;
   'tools.widths/tools.widths',
   'tools.mixins/tools.mixins',
   'tools.functions/tools.functions',
+  'generic.normalize/generic.normalize',
+  'generic.box-sizing/generic.box-sizing',
   'objects.list-inline/objects.list-inline',
+  'objects.buttons/objects.buttons',
   'objects.layout/objects.layout',
   'trumps.widths-responsive/trumps.widths-responsive',
   'trumps.spacing/trumps.spacing',

@@ -1,63 +1,69 @@
-<form action=#>
-  <fieldset class="lap-and-up-mb-">
-    <legend>Personal details</legend>
+<div class="form-wrapper palm-forms__border palm-layout mb-">
 
-    <ul class="form-fields">
-      <li>
-        <label for="first-name">First name</label>
-        <input type="text" class="text-input" id="first-name">
-      </li>
+  <div class="lap-and-up-forms__icon--hide palm-forms__icon--show t-center">
+    <svg width="130" height="40" xmlns="http://www.w3.org/2000/svg">
+      <text xml:space="preserve" font-family="courier new" font-size="44" y="35" x="0" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#000000" id="article-icon">FORMS</text>
+    </svg>
+  </div>
 
-      <li>
-        <label for="last-name">Last name</label>
-        <input type="text" class="text-input" id="last-name">
-      </li>
+  <form class="palm-forms__dropdown palm-layout__item palm-layout__item--center palm-l-block" action="#">
+    <fieldset class="mh0 b-radius b-black">
+      <legend>Personal details</legend>
 
-      <li>
-        <label for="email">Email</label>
-        <input type="email" class="text-input" id="email">
-        <small class="extra-help">.edu emails only</small>
-      </li>
-    </ul>
-  </fieldset>
+      <ul class="form-fields pl0">
+        <li>
+          <label class="pb--" for="first-name">First name</label>
+          <input type="text" class="text-input" id="first-name">
+        </li>
 
-  <fieldset>
-    <legend>Contacting you</legend>
+        <li>
+          <label class="pb--" for="last-name">Last name</label>
+          <input type="text" class="text-input" id="last-name">
+        </li>
 
-    <p>We may contact you from time to time&hellip;</p>
+        <li>
+          <label class="pb--" for="email">Email</label>
+          <input type="email" class="text-input" id="email">
+          <small class="extra-help">real emails only!</small>
+        </li>
+      </ul>
+    </fieldset>
 
-    <ul class="form-fields">
-      <li>
-        <span class="label">How would you like to be contacted?</span>
+    <fieldset class="mv- mh0 b-radius b-black">
+      <legend>Contacting you</legend>
+      <ul class="form-fields pl0">
+        <li>
+          <span class="label">How would you like to be contacted?</span>
 
-        <ul class="check-list">
-          <li>
-            <input type="checkbox" id="by-email"><label for="by-email">By email</label>
-          </li>
+          <ul class="check-list pt- pl0">
+            <li class="pv--">
+              <input type="checkbox" id="by-email"><label class="pl--" for="by-email">By email</label>
+            </li>
 
-          <li>
-            <input type="checkbox" id="by-post"><label for="by-post">By post</label>
-          </li>
+            <li class="pv--">
+              <input type="checkbox" id="by-post"><label class="pl--" for="by-post">By post</label>
+            </li>
 
-          <li>
-            <input type="checkbox" id="by-pigeon"><label for="by-pigeon">By carrier pigeon</label>
-          </li>
-        </ul>
-      </li>
+            <li class="pv--">
+              <input type="checkbox" id="by-pigeon"><label class="pl--" for="by-pigeon">By carrier pigeon</label>
+            </li>
+          </ul>
+        </li>
 
-      <li>
-        <span class="label">How often would you like to be contacted?</span>
+        <li>
+          <span class="label">How often would you like to be contacted?</span>
 
-        <ul class="check-list multi-list two-cols">
-          <li>
-            <input type="radio" name="frequency" id="weekly"><label for="weekly">Weekly</label>
-          </li>
+          <ul class="check-list multi-list pl0">
+            <li class="one-half l-inline-block pt-">
+              <input type="radio" name="frequency" id="weekly"><label class="pl--" for="weekly">Weekly</label>
+            </li><!--
 
-          <li>
-            <input type="radio" name"=frequency" id="daily"><label for=daily>Daily</label>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </fieldset>
-</form>
+            --><li class="one-half l-inline-block pt-">
+              <input type="radio" name"=frequency" id="daily"><label class="pl--" for="daily">Daily</label>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </fieldset>
+  </form>
+</div>

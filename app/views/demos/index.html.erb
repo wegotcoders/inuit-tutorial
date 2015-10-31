@@ -1,16 +1,18 @@
-<section class="lap-and-up-layout">
+<section class="layout__item layout__item--center lap-and-up-layout">
   <section role="main" class="lap-and-up-layout__item lap-and-up-two-thirds">
-    <div class="palm-carousel__border one-whole palm-mv-">
+    <div class="palm-carousel__border palm-layout palm-mv-">
       <%= render 'demos/carousel' %>
     </div>
 
-    <article role="article" class="palm-main-article__border palm-layout">
+    <article role="article" class="main-article__border layout mt mb-">
       <%= render 'demos/article' %>
     </article>
   </section><!--
 
   --><aside role="complementary" class="lap-and-up-one-third lap-and-up-layout__item pr0">
     <%= render 'demos/form' %>
+    <%= render 'demos/flyout' %>
+    <%= render 'demos/buttons' %>
   </aside>
 </section>
 

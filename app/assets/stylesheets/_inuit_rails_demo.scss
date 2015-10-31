@@ -14,8 +14,14 @@ $carousel-image-height:       125px;
 
 body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-right: $inuit-base-spacing-unit;
-  margin-left: $inuit-base-spacing-unit;
+}
+
+.prevent-svg-flicker {
+  -webkit-backface-visibility: hidden;
+}
+
+.block-within-dropdown {
+  display: block !important;
 }
 
 .main-paragraph {
@@ -56,7 +62,7 @@ body {
   }
 }
 
-// Dropdowns: lower-navbar, carousel, main-article
+// Dropdowns: lower-navbar, carousel, forms, flyout, buttons, main-article
 @include media-query('lap-and-up') {
   .lap-and-up-lower-navbar__burger--hide {
     display: none !important;
@@ -66,12 +72,25 @@ body {
     display: none !important;
   }
 
-  .lap-and-up-main-article__icon--hide {
+  .lap-and-up-forms__icon--hide {
+    display: none !important;
+  }
+
+  .lap-and-up-flyout__icon--hide {
+    display: none !important;
+  }
+
+  .lap-and-up-buttons__icon--hide {
     display: none !important;
   }
 }
 
 @include media-query('palm') {
+  // removing whitespace under icon in closed dropdown sections that contain layout__items
+  .palm-l-block {
+    display: block !important;
+  }
+
   // lower-navbar
   .palm-lower-navbar__burger--show {
     color: $black;
@@ -102,13 +121,7 @@ body {
 
   // carousel
   .palm-carousel__icon--show {
-    height: 44px;
-    color: $light-grey;
-    margin: 0 auto;
-    display: block !important;
-
     &:hover {
-      color: $black;
       cursor: pointer;
     }
   }
@@ -129,34 +142,97 @@ body {
     border-width: thin;
   }
 
-  // main-article
-  .palm-main-article__icon--show {
-    height: 44px;
-    color: $light-grey;
-    margin: 0 auto;
-    display: block !important;
-
+  // forms
+  .palm-forms__icon--show {
     &:hover {
-      color: $black;
       cursor: pointer;
     }
   }
 
-  .palm-main-article__dropdown {
+  .palm-forms__dropdown {
     max-height: 0;
     overflow: hidden;
 
-    &.palm-main-article__dropdown--open {
+    &.palm-forms__dropdown--open {
       max-height: 10000px
     }
   }
 
-  .palm-main-article__border {
+  .palm-forms__border {
     border-color: $black;
     border-radius: 4px;
     border-style: solid;
     border-width: thin;
   }
+
+  // flyout
+  .palm-flyout__icon--show {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .palm-flyout__dropdown {
+    max-height: 0;
+    overflow: hidden;
+
+    &.palm-flyout__dropdown--open {
+      max-height: 10000px
+    }
+  }
+
+  .palm-flyout__border {
+    border-color: $black;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: thin;
+  }
+
+  // buttons
+  .palm-buttons__icon--show {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .palm-buttons__dropdown {
+    max-height: 0;
+    overflow: hidden;
+
+    &.palm-buttons__dropdown--open {
+      max-height: 10000px
+    }
+  }
+
+  .palm-buttons__border {
+    border-color: $black;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: thin;
+  }
+}
+
+// main-article (not wrapped in media query!)
+.main-article__icon--show {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.main-article__dropdown {
+  max-height: 0;
+  overflow: hidden;
+
+  &.main-article__dropdown--open {
+    max-height: 10000px
+  }
+}
+
+.main-article__border {
+  border-color: $black;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: thin;
 }
 
 // Overriding the medium size for evil-icon SVGs

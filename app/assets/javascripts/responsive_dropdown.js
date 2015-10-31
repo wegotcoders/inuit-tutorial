@@ -9,9 +9,25 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  $('.palm-main-article__icon--show').click(function(e) {
-    $('.palm-main-article__dropdown').toggleClass('palm-main-article__dropdown--open');
-    $('.palm-main-article__dropdown').toggleClass('mt-');
+  $('.main-article__icon--show').click(function(e) {
+    $('.main-article__dropdown').toggleClass('main-article__dropdown--open');
+    $('.main-article__dropdown').toggleClass('mt-');
+    e.preventDefault();
+  });
+
+  $('.palm-forms__icon--show').click(function(e) {
+    $('.palm-forms__dropdown').toggleClass('palm-forms__dropdown--open');
+    e.preventDefault();
+  });
+
+  $('.palm-flyout__icon--show').click(function(e) {
+    $('.palm-flyout__dropdown').toggleClass('palm-flyout__dropdown--open');
+    $('.flyout').toggleClass('p-');
+    e.preventDefault();
+  });
+
+  $('.palm-buttons__icon--show').click(function(e) {
+    $('.palm-buttons__dropdown').toggleClass('palm-buttons__dropdown--open');
     e.preventDefault();
   });
 });
