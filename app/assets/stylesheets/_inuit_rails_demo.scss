@@ -1,7 +1,8 @@
 $white:                       #fff;
+$light-grey:                  #adadad;
 $link-blue:                   #00f;
 $link-purple:                 #520052;
-$light-grey:                  #adadad;
+$skeleton-text:               #222;
 $dark-grey:                   #303032;
 $black:                       #000;
 $inuit-responsive-settings:   true;
@@ -29,6 +30,7 @@ body {
   margin-top: 0;
   margin-bottom: quarter($inuit-base-spacing-unit);
   text-indent: quarter($inuit-base-spacing-unit);
+  text-color: $skeleton-text;
 }
 
 .main-link {
@@ -55,14 +57,15 @@ body {
 }
 
 .upper-navbar__search-icon {
-  color: $black;
+  color: $skeleton-text;
 
   &:hover {
     cursor: pointer;
   }
 }
 
-// Dropdowns: lower-navbar, carousel, forms, flyout, buttons, main-article
+// Dropdowns: lower-navbar, carousel, forms, flyout, buttons,
+//            main-article, layout-eg-1, layout-eg-2, layout-eg-3
 @include media-query('lap-and-up') {
   .lap-and-up-lower-navbar__burger--hide {
     display: none !important;
@@ -83,6 +86,18 @@ body {
   .lap-and-up-buttons__icon--hide {
     display: none !important;
   }
+
+  .lap-and-up-layout-eg-1__icon--hide {
+    display: none !important;
+  }
+
+  .lap-and-up-layout-eg-2__icon--hide {
+    display: none !important;
+  }
+
+  .lap-and-up-layout-eg-3__icon--hide {
+    display: none !important;
+  }
 }
 
 @include media-query('palm') {
@@ -93,7 +108,7 @@ body {
 
   // lower-navbar
   .palm-lower-navbar__burger--show {
-    color: $black;
+    color: $skeleton-text;
     height: 44px;
     margin: 0 auto;
     display: block !important;
@@ -113,7 +128,7 @@ body {
   }
 
   .palm-lower-navbar__border {
-    border-color: $black;
+    border-color: $skeleton-text;
     border-radius: 4px;
     border-style: solid;
     border-width: thin;
@@ -136,7 +151,7 @@ body {
   }
 
   .palm-carousel__border {
-    border-color: $black;
+    border-color: $skeleton-text;
     border-radius: 4px;
     border-style: solid;
     border-width: thin;
@@ -159,7 +174,7 @@ body {
   }
 
   .palm-forms__border {
-    border-color: $black;
+    border-color: $skeleton-text;
     border-radius: 4px;
     border-style: solid;
     border-width: thin;
@@ -182,7 +197,7 @@ body {
   }
 
   .palm-flyout__border {
-    border-color: $black;
+    border-color: $skeleton-text;
     border-radius: 4px;
     border-style: solid;
     border-width: thin;
@@ -205,7 +220,99 @@ body {
   }
 
   .palm-buttons__border {
-    border-color: $black;
+    border-color: $skeleton-text;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: thin;
+  }
+
+  // layout-eg-1
+  .palm-layout-eg-1__icon--show {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .palm-layout-eg-1__dropdown {
+    max-height: 0;
+    overflow: hidden;
+
+    &.palm-layout-eg-1__dropdown--open {
+      max-height: 10000px
+    }
+  }
+
+  .palm-layout-eg-1__border {
+    border-color: $skeleton-text;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: thin;
+  }
+
+  // layout-eg-2
+  .palm-layout-eg-2__icon--show {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .palm-layout-eg-2__dropdown {
+    max-height: 0;
+    overflow: hidden;
+
+    &.palm-layout-eg-2__dropdown--open {
+      max-height: 10000px
+    }
+  }
+
+  .palm-layout-eg-2__border {
+    border-color: $skeleton-text;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: thin;
+  }
+
+  // layout-eg-2
+  .palm-layout-eg-2__icon--show {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .palm-layout-eg-2__dropdown {
+    max-height: 0;
+    overflow: hidden;
+
+    &.palm-layout-eg-2__dropdown--open {
+      max-height: 10000px
+    }
+  }
+
+  .palm-layout-eg-2__border {
+    border-color: $skeleton-text;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: thin;
+  }
+
+  // layout-eg-3
+  .palm-layout-eg-3__icon--show {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .palm-layout-eg-3__dropdown {
+    max-height: 0;
+    overflow: hidden;
+
+    &.palm-layout-eg-3__dropdown--open {
+      max-height: 10000px
+    }
+  }
+
+  .palm-layout-eg-3__border {
+    border-color: $skeleton-text;
     border-radius: 4px;
     border-style: solid;
     border-width: thin;
@@ -229,7 +336,7 @@ body {
 }
 
 .main-article__border {
-  border-color: $black;
+  border-color: $skeleton-text;
   border-radius: 4px;
   border-style: solid;
   border-width: thin;
@@ -285,11 +392,11 @@ body {
   margin-left: halve($inuit-base-spacing-unit);
 
   &:hover {
-    background-color: $black;
+    background-color: $skeleton-text;
     cursor: pointer;
   }
 }
 
 .carousel__dot-selector--active {
-  background-color: $black;
+  background-color: $skeleton-text;
 }
