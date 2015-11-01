@@ -1,7 +1,7 @@
 <nav role="navigation" id="upper-navbar" class="layout__item layout__item--center mt-">
-  <a href="#" class="layout__item one-fifth l-fl pv- ph-- t-uppercase t-dec-none t-center c-skeleton-text b-solid b-thin b-skeleton-text b-radius">Home</a>
+  <a href="#" id="link-home-upper-nav" class="layout__item one-fifth l-fl pv- ph-- t-uppercase t-dec-none t-center c-skeleton-text b-solid b-thin b-skeleton-text b-radius">Home</a>
 
-  <%= form_tag '#', method: 'get', class: 'three-tenths layout__item ml-' do %>
+  <%= form_tag '#', method: 'get', class: 'search-form three-tenths layout__item ml-' do %>
     <%= hidden_field_tag :origin, :navbar %>
     <%=
       text_field_tag :query, params[:query], class: 'upper-navbar__search-field layout__item b-radius pv- pl-- b-thin b-solid b-skeleton-text',
@@ -13,6 +13,6 @@
     <%= evil_icon('ei-search', size: :m, class: 'upper-navbar__search-icon layout__item') %>
   <% end %>
 
-  <a href="#" class="layout__item one-fifth l-fr pv- ph-- t-uppercase t-dec-none t-center c-skeleton-text b-solid b-thin b-skeleton-text b-radius">Sign Up</a>
-  <a href="#" class="layout__item one-fifth l-fr pv- ph-- t-uppercase t-dec-none t-center c-skeleton-text b-solid b-thin b-skeleton-text b-radius mr-">Sign In</a>
+  <a href="#" id="link-sign-up-upper-nav" class="layout__item one-fifth l-fr pv- ph-- t-uppercase t-dec-none t-center c-skeleton-text b-solid b-thin b-skeleton-text b-radius">Sign Up</a>
+  <a href="#" id="link-sign-in-upper-nav" class="layout__item one-fifth l-fr pv- ph-- t-uppercase t-dec-none t-center c-skeleton-text b-solid b-thin b-skeleton-text b-radius mr-">Sign In</a>
 </nav>
