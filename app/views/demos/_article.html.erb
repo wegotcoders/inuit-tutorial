@@ -7,89 +7,19 @@
 </div>
 
 <div class="main-article__dropdown layout__item layout__item--center block-within-dropdown">
-  <p class="main-paragraph">
-    Let's get to it!
-    Probably the first thing to say about this demo is that there are three
-    different layers which contribute to its styling. At the bottom level there
-    are pure inuitcss classes straight from the source. Next up there is a
-    wrapper which adds and overrides certain inuitcss classes (c.f. references to the
-    inuit-overrides/ directory in the source); providing adapted naming and
-    style conventions. On top there is custom javascript and css written just
-    for the design of the page which simply decorates what has already been
-    put in place.
-  </p>
+<p class="main-paragraph">
+  Let's get to it! The most important thing to get right with the inuitcss framework is the layout, and it's quite simple. Put the 'layout' class on your parent element, and then bestow the corresponding 'layout__item' class on all direct descendants. There are minor variations on this, for example if you enable the We Got Coders wrapper you can prefix 'layout' with  'lap-and-up-' or 'palm-' to correspond to inuitcss' baked-in media queries, and there are BEM modifiers such as '--tiny' or '--huge' which control the size of the guttering. That's the first half of controlling layout with inuitcss, the second half is setting the width of your DOM elements. Again, you can prefix the class names with the inuitcss device aliases for responsive behaviour, but here if you enable the We Got Coders wrapper you will have the choice to use class names such as 'seven-twentieths' or 'one-half' (though the original 1/4, 15/17 or one-of-four, fifteen-of-seventeen syntaxes remain available if you prefer). And that's it! The rest is just fine-tuning. There are responsive spacing classes that follow the same conventions regarding device aliases such as 'pl0', 'palm-mb--', or 'desk-pt++' which are available as soon as you activate them in the usual way.
+</p>
 
-  <p class="main-paragraph">
-    So, working from the top of the page, the upper-navbar is one of the more exotic
-    elements on the page. One-whole, three-eighths, seven-twelfths, thirteen-nineteenths
-    was the original inuitcss syntax for grids that has been discontinued in the latest
-    release, so to provide backwards compatibilty with past projects this syntax
-    has been restored by the wegotcoders wrapper. However, the new 1/4, 15/17 or one-of-four, fifteen-of-seventeen
-    syntaxes are also available in the standard way if you prefer. In this case
-    the widths of the children have been chosen so that cumulatively they take
-    up less than the total width of their parent, then floated left or right
-    for aesthetics. Because of the choice to use float-right here a full blown inuit
-    layout--modifier solution has been avoided for simplicity, instead using
-    standard inuitcss margin classes to provide the separation between adjacent
-    children - this does not harm the column structure by virtue of the fact
-    that there is some 'spare' space to play with between the left and right
-    floated elements.
-  </p>
+<p class="main-paragraph">
+  Note 1. In the three examples of layout given below examples 1 and 3 are standard implementations of inuitcss using 'layout' and 'layout--flush' respectively, whereas example 2 uses the 'layout__item--center' class that also inherits from any of the 'layout' variants but instead of guttering with a padding-right they gutter with half of the same on each side to achieve a true centring of the content.
+</p>
 
-  <p class="main-paragraph">
-    The lower-navbar is a good example of the BEM style layout classes that
-    inuitcss provides. The layout class confers a guttering style to all layout__items
-    that are direct descendants, but in this case that system has been extended
-    one step further by the wegotcoders wrapper with a layout__item--center class that overrides the
-    default guttering by applying half the original padding to both sides,
-    thus preserving the original spacing but leaving the content truly centred.
-    This must be used in conjunction with layout__item to preserve the border-box!
-    The extra padding-left on the first item of the list has been masked here
-    with a negative margin-left to keep the start of the list flush with the
-    edge of the body. Note that by virtue of the wegotcoders wrapper the
-    default guttering is applied as a padding right to keep a negative
-    margin-left such as this out of the general case. In addition the syntax
-    for a negative margin has been altered from -m neg-m to avoid confusion
-    with BEM syntax when prefixing the class with a device alias that corresponds
-    to a media query e.g. lap-and-up--m.
-  </p>
+<p class="main-paragraph">
+  Note 2. Because all layout__items have 'border-box' set for their box-sizing, paddings will inward on content and therefore should generally be favoured over margins for adjusting horizontal spacing because this will not damage the column structure.
+</p>
 
-  <p class="main-paragraph">
-    Looking at the links 1 to 7 the lower-navbar also exposes one of the best features of the wegotcoders wrapper, the colour
-    palette. A Sass list that is combined with a simple map, allowing one to call
-    bg-(colour-name) c-(colour-name) and b-(colour-name) to set the
-    background-color, color and border-color properties as desired. Throughout
-    the page there are plenty of other 'wrapper-classes' at play to provide
-    fine-tuning: t-dec-none, t-uppercase, l-fl, l-fr, b-radius, b-solid, b-thin,
-    all ship with the gem. However, if you prefer to leave these out of your
-    app and invent your own, just set the $enable-wgc-overrides to false, see
-    the <a href="#" class="main-link">docs</a>.
-  </p>
-
-  <p class="main-paragraph">
-    The main section of this page uses a layout--flush to keep the article
-    and aside sections flush together, but the guttering style is reset to
-    layout inside each of these sections to provide the spacing within their
-    respective columns. This guttering will disappear however, if you drop the screen width
-    below 45em (here 720px). Since we are letting each row occupy the full
-    width of the body there is no need to worry about guttering and we swap
-    lap-and-up-layout for palm-layout--flush. Note also that the links in the
-    lower navbar are now hidden in a burger menu and stacked vertically, therefore
-    palm-mv-- has been used to ensure the links are nicely spaced on palm devices
-    when the burger is opened. In order to hide and display the burger icon
-    the lap-and-up-lower-navbar__burger--hide and palm-lower-navbar__burger--show
-    classes have been used. While these are not strictly inuitcss classes they
-    are generated inside the inuitcss media-query mixin to correspond with the
-    same set of breakpoints.
-  </p>
-
-  <p class="main-paragraph">
-    As a final point consider the (very wise) carousel. It too was not built
-    with components from inuitcss generally, but the navigation dots do refer to
-    the same $inuit-base-spacing-unit for their width all the markup involved extends the same BEM style conventions.
-    (Care has also been taken to use the image-url() function to set the images
-    as the background property of their containers and to use svg's for the
-    richest responsive behaviour). Therefore, while there are two separate forces at work
-    here, they try as hard as possible to act as one.
-  </p>
+<p class="main-paragraph">
+  The remainder of this demo page has two purposes. First, to demonstrate good layout practices in context - take a look at this page on different devices! And second, to give some vanilla examples of the various other components that the inuitcss framework offers. For exhaustive detail on any part of the framework presented here, please take a look at our <a href="#" class="main-link">docs</a>.
+</p>
 </div>
