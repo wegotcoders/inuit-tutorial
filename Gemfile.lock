@@ -1,5 +1,6 @@
-PATH
-  remote: ../../../
+GIT
+  remote: https://github.com/alfredoliverwillder/inuit-rails
+  revision: 6cb82493a8bdf96ece36ef5ef63d3232a884fdb5
   specs:
     inuit-rails (0.1.0)
 
