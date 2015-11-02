@@ -1,9 +1,8 @@
 GIT
   remote: https://github.com/alfredoliverwillder/inuit-rails
-  revision: 12ace27b342ee248860da562fb899db653d1aaac
-  branch: working-with-bower-updates
+  revision: 2bdab96eb3279153a56933e8262f425cf75b8a67
   specs:
-    inuit-rails (0.1.0)
+    inuit-rails (0.2.0)
 
 GEM
   remote: https://rubygems.org/
