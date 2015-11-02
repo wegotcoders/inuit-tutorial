@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/alfredoliverwillder/inuit-rails
-  revision: 6cb82493a8bdf96ece36ef5ef63d3232a884fdb5
+  revision: 12ace27b342ee248860da562fb899db653d1aaac
+  branch: working-with-bower-updates
   specs:
     inuit-rails (0.1.0)
 

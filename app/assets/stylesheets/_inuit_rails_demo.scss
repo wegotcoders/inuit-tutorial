@@ -8,10 +8,10 @@ $black:                       #000;
 $inuit-responsive-settings:   true;
 $carousel-image-height:       125px;
 
-@import 'settings.responsive/settings.responsive';
-@import 'settings.defaults/settings.defaults';
-@import 'tools.responsive/tools.responsive';
-@import 'tools.functions/tools.functions';
+@import 'inuit-responsive-settings/settings.responsive';
+@import 'inuit-defaults/settings.defaults';
+@import 'inuit-responsive-tools/tools.responsive';
+@import 'inuit-functions/tools.functions';
 
 body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
