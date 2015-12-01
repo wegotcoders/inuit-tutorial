@@ -6,8 +6,9 @@
 !/log/.keep
 /tmp/*
 
-# Ignore carrierwave uploads
+# Ignore carrierwave uploads and assets
 /public/uploads/*
+/public/assets
 
 # Ignore application configuration
 /config/application.yml
