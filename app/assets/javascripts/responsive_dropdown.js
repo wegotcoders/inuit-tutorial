@@ -33,19 +33,19 @@ $(document).ready(function() {
 
   $('.palm-layout-eg-1__icon--show').click(function(e) {
     $('.palm-layout-eg-1__dropdown').toggleClass('palm-layout-eg-1__dropdown--open');
-    $('.palm-layout-eg-1__dropdown').toggleClass('mb-');
+    $('.palm-layout-eg-1__dropdown').toggleClass('wgc__margin-bottom--one-half-bsu');
     e.preventDefault();
   });
 
   $('.palm-layout-eg-2__icon--show').click(function(e) {
     $('.palm-layout-eg-2__dropdown').toggleClass('palm-layout-eg-2__dropdown--open');
-    $('.palm-layout-eg-2__dropdown').toggleClass('mb-');
+    $('.palm-layout-eg-2__dropdown').toggleClass('wgc__margin-bottom--one-half-bsu');
     e.preventDefault();
   });
 
   $('.palm-layout-eg-3__icon--show').click(function(e) {
     $('.palm-layout-eg-3__dropdown').toggleClass('palm-layout-eg-3__dropdown--open');
-    $('.palm-layout-eg-3__dropdown').toggleClass('mb-');
+    $('.palm-layout-eg-3__dropdown').toggleClass('wgc__margin-bottom--one-half-bsu');
     e.preventDefault();
   });
 });

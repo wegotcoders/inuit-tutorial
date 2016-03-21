@@ -1,18 +1,19 @@
-<nav role="navigation" id="upper-navbar" class="layout__item layout__item--center mt-">
-  <a href="#" id="link-home-upper-nav" class="layout__item one-fifth l-fl pv- ph-- t-uppercase t-dec-none t-center c-skeleton-text b-solid b-thin b-skeleton-text b-radius">Home</a>
+<nav role="navigation" id="upper-navbar" class="wgc__layout__item wgc__layout__item--center wgc__margin-top--one-half-bsu">
+  <a href="#" id="link-home-upper-nav" class="wgc__layout__item wgc__column-width--one-fifth wgc__float--left wgc__paddings-vertical--one-half-bsu wgc__paddings-horizontal--one-quarter-bsu wgc__text-transform--uppercase wgc__text-decoration--none wgc__text-align--center wgc__border-style--solid wgc__border-width--thin wgc__border-radius wgc__text-color--black">Home</a>
 
-  <%= form_tag '#', method: 'get', class: 'search-form three-tenths layout__item ml-' do %>
+  <%= form_tag '#', method: 'get', class: 'search-form wgc__column-width--three-tenths wgc__layout__item wgc__margin-left--one-half-bsu wgc__display--inline-block' do %>
     <%= hidden_field_tag :origin, :navbar %>
     <%=
-      text_field_tag :query, params[:query], class: 'upper-navbar__search-field layout__item b-radius pv- pl-- b-thin b-solid b-skeleton-text',
+      text_field_tag :query, params[:query], class: 'upper-navbar__search-field wgc__layout__item wgc__border-radius wgc__paddings-vertical--one-half-bsu wgc__padding-left--one-quarter-bsu wgc__border-width--thin wgc__border-style--solid',
       placeholder: 'Search...'
     %>
 
     <%= submit_tag"Search", class: 'upper-navbar__search-submit' %>
 
-    <%= evil_icon('ei-search', size: :m, class: 'upper-navbar__search-icon layout__item') %>
+    <%= evil_icon('ei-search', size: :m, class: 'upper-navbar__search-icon wgc__layout__item wgc__vertical-align--top') %>
   <% end %>
 
-  <a href="#" id="link-sign-up-upper-nav" class="layout__item one-fifth l-fr pv- ph-- t-uppercase t-dec-none t-center c-skeleton-text b-solid b-thin b-skeleton-text b-radius">Sign Up</a>
-  <a href="#" id="link-sign-in-upper-nav" class="layout__item one-fifth l-fr pv- ph-- t-uppercase t-dec-none t-center c-skeleton-text b-solid b-thin b-skeleton-text b-radius mr-">Sign In</a>
+  <a href="#" id="link-sign-up-upper-nav" class="wgc__layout__item wgc__column-width--one-fifth wgc__float--right wgc__paddings-vertical--one-half-bsu wgc__paddings-horizontal--one-quarter-bsu wgc__text-transform--uppercase wgc__text-decoration--none wgc__text-align--center wgc__border-style--solid wgc__border-width--thin wgc__border-radius wgc__text-color--black">Sign Up</a>
+
+  <a href="#" id="link-sign-in-upper-nav" class="wgc__layout__item wgc__column-width--one-fifth wgc__float--right wgc__paddings-vertical--one-half-bsu wgc__paddings-horizontal--one-quarter-bsu wgc__text-transform--uppercase wgc__text-decoration--none wgc__text-align--center wgc__border-style--solid wgc__border-width--thin wgc__border-radius wgc__margin-right--one-half-bsu wgc__text-color--black">Sign In</a>
 </nav>

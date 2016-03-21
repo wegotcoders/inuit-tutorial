@@ -101,8 +101,8 @@ body {
 }
 
 @include media-query('palm') {
-  // removing whitespace under icon in closed dropdown sections that contain layout__items
-  .palm-l-block {
+  // removing whitespace under icon in closed dropdown sections that contain wgc__layout__items
+  .wgc__palm-display--block {
     display: block !important;
   }
 

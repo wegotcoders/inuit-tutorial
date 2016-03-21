@@ -1,67 +1,60 @@
 /* Set variables */
-$enable-wgc-wrapper:                                true;
+$inuit-enable-btn--small:                      true;
+$inuit-enable-btn--large:                      true;
+$inuit-enable-btn--full:                       true;
+$inuit-enable-btn--pill:                       true;
 
-$inuit-enable-layout--small:                        true;
-$inuit-enable-layout--medium:                       true;
-$inuit-enable-layout--center:                       true;
-$inuit-enable-layout--right:                        true;
-$inuit-enable-layout--flush:                        true;
-$inuit-enable-layout--large:                        true;
-$inuit-enable-margins--none:                        true;
-$inuit-enable-margins--tiny:                        true;
-$inuit-enable-margins--small:                       true;
-$inuit-enable-margins:                              true;
-$inuit-enable-responsive-margins--none:             true;
-$inuit-enable-responsive-margins--tiny:             true;
-$inuit-enable-responsive-margins--small:            true;
-$inuit-enable-responsive-margins:                   true;
-$inuit-enable-responsive-margins--negative-small:   true;
+$wgc-enable-layout--flush:                     true;
+$wgc-enable-layout--gutter-one-quarter-bsu:    true;
+$wgc-enable-layout--gutter-one-half-bsu:       true;
+$wgc-enable-layout--gutter-one-bsu:            true;
+$wgc-enable-layout--gutter-two-bsu:            true;
+$wgc-enable-layout--gutter-four-bsu:           true;
+$wgc-enable-layout--center:                    true;
 
-$inuit-enable-responsive-paddings--none:            true;
-$inuit-enable-responsive-paddings--tiny:            true;
-$inuit-enable-responsive-paddings--small:           true;
-$inuit-enable-responsive-paddings:                  true;
-$inuit-enable-paddings--none:                       true;
-$inuit-enable-paddings--tiny:                       true;
-$inuit-enable-paddings--small:                      true;
-$inuit-enable-paddings:                             true;
+$wgc-enable-paddings--one-quarter-bsu:         true;
+$wgc-enable-paddings--one-half-bsu:            true;
+$wgc-enable-paddings--one-bsu:                 true;
+$wgc-enable-paddings--two-bsu:                 true;
+$wgc-enable-paddings--four-bsu:                true;
+$wgc-enable-paddings--none:                    true;
 
-$inuit-enable-btn--small:                           true;
-$inuit-enable-btn--large:                           true;
-$inuit-enable-btn--full:                            true;
-$inuit-enable-btn--pill:                            true;
+$wgc-enable-margins--one-quarter-bsu:          true;
+$wgc-enable-margins--one-half-bsu:             true;
+$wgc-enable-margins--one-bsu:                  true;
+$wgc-enable-margins--two-bsu:                  true;
+$wgc-enable-margins--four-bsu:                 true;
+$wgc-enable-margins--none:                     true;
+$wgc-enable-negative-margins--one-quarter-bsu: true;
+$wgc-enable-negative-margins--one-half-bsu:    true;
+$wgc-enable-negative-margins--one-bsu:         true;
+$wgc-enable-negative-margins--two-bsu:         true;
+$wgc-enable-negative-margins--four-bsu:        true;
 
 /* Import desired files */
 @import
   'inuit-defaults/settings.defaults',
-  'inuit-responsive-settings/settings.responsive',
-  'inuit-responsive-tools/tools.responsive',
-  'inuit-tools-widths/tools.widths',
   'inuit-mixins/tools.mixins',
   'inuit-functions/tools.functions',
   'inuit-normalize/generic.normalize',
   'inuit-box-sizing/generic.box-sizing',
   'inuit-list-inline/objects.list-inline',
   'inuit-buttons/objects.buttons',
-  'inuit-layout/objects.layout',
-  'inuit-widths-responsive/trumps.widths-responsive',
-  'inuit-spacing/trumps.spacing',
-  'inuit-spacing-responsive/trumps.spacing-responsive',
   'inuit-clearfix/trumps.clearfix',
 
-  'wgc/inuit-overrides/settings.defaults',
-  'wgc/inuit-overrides/settings.responsive',
-  'wgc/inuit-overrides/tools.functions',
-  'wgc/inuit-overrides/tools.mixins',
-  'wgc/inuit-overrides/generic.shared',
-  'wgc/inuit-overrides/base.forms',
-  'wgc/inuit-overrides/objects.layout',
-  'wgc/inuit-overrides/objects.flyout',
-  'wgc/inuit-overrides/trumps.spacing',
-  'wgc/inuit-overrides/trumps.spacing-responsive',
-  'wgc/inuit-overrides/trumps.widths-responsive',
-  'wgc/borders',
-  'wgc/colours',
-  'wgc/layout',
-  'wgc/typography'
+  'wgc/wgc_config',
+
+  'wgc/css_wizardy/generic.shared',
+  'wgc/css_wizardy/base.forms',
+  'wgc/css_wizardy/objects.flyout',
+
+  'wgc/modified_inuit_css/breakpoints',
+  'wgc/modified_inuit_css/layout_groups',
+  'wgc/modified_inuit_css/columns',
+  'wgc/modified_inuit_css/box_model',
+
+  'wgc/wgc_add_ons/layout_helpers',
+  'wgc/wgc_add_ons/borders',
+  'wgc/wgc_add_ons/colors',
+  'wgc/wgc_add_ons/typography'
 ;
