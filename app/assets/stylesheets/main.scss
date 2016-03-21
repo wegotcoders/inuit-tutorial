@@ -4,6 +4,8 @@ $inuit-enable-btn--large:                      true;
 $inuit-enable-btn--full:                       true;
 $inuit-enable-btn--pill:                       true;
 
+$wgc-global-border-box:                        true;
+
 $wgc-enable-layout--flush:                     true;
 $wgc-enable-layout--gutter-one-quarter-bsu:    true;
 $wgc-enable-layout--gutter-one-half-bsu:       true;
@@ -33,14 +35,14 @@ $wgc-enable-negative-margins--four-bsu:        true;
 
 /* Import desired files */
 @import
-  'inuit-defaults/settings.defaults',
-  'inuit-mixins/tools.mixins',
-  'inuit-functions/tools.functions',
-  'inuit-normalize/generic.normalize',
-  'inuit-box-sizing/generic.box-sizing',
-  'inuit-list-inline/objects.list-inline',
-  'inuit-buttons/objects.buttons',
-  'inuit-clearfix/trumps.clearfix',
+  'inuit/inuit-defaults/settings.defaults',
+  'inuit/inuit-mixins/tools.mixins',
+  'inuit/inuit-functions/tools.functions',
+  'inuit/inuit-normalize/generic.normalize',
+  'inuit/inuit-box-sizing/generic.box-sizing',
+  'inuit/inuit-list-inline/objects.list-inline',
+  'inuit/inuit-buttons/objects.buttons',
+  'inuit/inuit-clearfix/trumps.clearfix',
 
   'wgc/wgc_config',
 
