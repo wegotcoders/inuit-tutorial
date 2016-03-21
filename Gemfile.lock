@@ -1,5 +1,7 @@
-PATH
-  remote: ../inuit-rails
+GIT
+  remote: git@github.com:wegotcoders/inuit-rails.git
+  revision: a4d00083eb86debf656ecb97070bf77f5f008588
+  branch: v3.0.0
   specs:
     inuit-rails (0.2.0)
 

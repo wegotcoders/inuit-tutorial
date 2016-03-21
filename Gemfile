@@ -9,7 +9,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'evil_icons'
 
-gem 'inuit-rails', path: '../inuit-rails'
+gem 'inuit-rails', git: 'git@github.com:wegotcoders/inuit-rails.git', branch: 'v3.0.0'
+# gem 'inuit-rails', path: '../inuit-rails'
 
 group :development, :test do
   gem 'pry'
